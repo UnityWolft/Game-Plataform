@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Biblioteca - MiniSteam</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <nav class="navbar">
+    <a class="logo">🎮 MINISTEAM</a>
+    <div class="menu">
+        <span id="user-name"></span> 
+        
+        <a href="tienda.html">Tienda</a>
+        <a href="biblioteca.html">Biblioteca</a>
+        
+        <a href="login.html" id="link-login">Login</a>
+        
+        <a href="api/srv_logout.php" id="link-logout">Salir</a>
+    </div>
+</nav>
+
+    <main class="container">
+        <header class="section-header">
+            <h2>Mi Colección Personal</h2>
+            <p>Juegos guardados en tu base de datos privada.</p>
+        </header>
+
+        <div id="lista-biblioteca" class="grid-juegos">
+            <div class="loader">Consultando tus juegos...</div>
+        </div>
+    </main>
+
+    <script src="js/biblioteca.js"></script>
+</body>
+</html>
