@@ -1,16 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
     const contenedor = document.getElementById("contenedor-juegos");
 
-    // Módulo 08/09: Fetch al servicio que devuelve JSON
     fetch("api/srv_tienda.php")
         .then(res => {
             if(!res.ok) throw new Error("Error al conectar con la API");
             return res.json();
         })
         .then(data => {
-            contenedor.innerHTML = ""; // Limpiar el loader
+            contenedor.innerHTML = "";
             
-            // Módulo 11: Mostrar datos dinámicamente
             data.slice(0, 16).forEach(juego => {
                 const card = document.createElement("div");
                 card.className = "card-game";
@@ -49,7 +47,6 @@ function agregarABiblioteca(nombre, imagen) {
     .catch(err => alert("Error al guardar el juego"));
 }
 document.addEventListener("DOMContentLoaded", () => {
-    // Verificar sesión al cargar la página
     fetch("api/srv_session.php")
         .then(res => res.json())
         .then(user => {
