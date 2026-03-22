@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const contenedor = document.getElementById("lista-biblioteca");
 
-    // Módulo 11: Renderizado dinámico desde el servicio de base de datos
     fetch("api/srv_biblioteca.php")
         .then(res => {
             if (res.status === 401) {
@@ -12,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return res.json();
         })
         .then(data => {
-            contenedor.innerHTML = ""; // Limpiar cargando
+            contenedor.innerHTML = ""; 
 
             if (data.length === 0) {
                 contenedor.innerHTML = "<p>Aún no tienes juegos en tu biblioteca. ¡Ve a la tienda!</p>";
@@ -40,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 });
 document.addEventListener("DOMContentLoaded", () => {
-    // Verificar sesión al cargar la página
     fetch("api/srv_session.php")
         .then(res => res.json())
         .then(user => {
@@ -50,8 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (user.logeado) {
                 if (userNameDisplay) userNameDisplay.innerText = "Hola, " + user.nombre;
-                if (btnLogin) btnLogin.style.display = "none";    // Esconder Login
-                if (btnLogout) btnLogout.style.display = "block"; // Mostrar Salir
+                if (btnLogin) btnLogin.style.display = "none"; 
+                if (btnLogout) btnLogout.style.display = "block";
             } else {
                 if (btnLogout) btnLogout.style.display = "none";
             }
