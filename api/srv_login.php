@@ -6,19 +6,15 @@ require_once 'db.php';
 $input = json_decode(file_get_contents("php://input"), true);
 
 try {
-    // 1. Validación (Módulo 12)
     if (empty($input['correo']) || empty($input['password'])) {
         throw new Exception("Datos incompletos.");
     }
 
-    // 2. Consulta a la Base de Datos (Módulo 13)
     $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE correo = ?");
     $stmt->execute([$input['correo']]);
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // 3. Verificar usuario y contraseña cifrada
     if ($usuario && password_verify($input['password'], $usuario['password'])) {
-        // Crear sesión
         $_SESSION['id'] = $usuario['id'];
         $_SESSION['nombre'] = $usuario['nombre'];
         
