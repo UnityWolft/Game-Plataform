@@ -1,0 +1,207 @@
+/* Paleta de colores Steam */
+:root {
+    --bg-main: #1b2838;       /* Azul oscuro fondo */
+    --bg-nav: #171a21;        /* Negro azulado barras */
+    --steam-blue: #66c0f4;    /* Azul brillante acento */
+    --steam-grey: #c7d5e0;    /* Texto gris claro */
+    --steam-dark-grey: #2a475e; /* Fondo de tarjetas */
+    --success-green: #5c7e10;  /* Verde botones "Añadir" */
+}
+
+body {
+    background-color: var(--bg-main);
+    background-image: radial-gradient(at top left, #1b2838 0%, #171a21 100%);
+    color: var(--steam-grey);
+    font-family: "Motiva Sans", Sans-Serif, Arial;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Navegación estilo Steam */
+.navbar {
+    background-color: var(--bg-nav);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.menu a {
+    color: #b8b6b4;
+    text-decoration: none;
+    margin-left: 25px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: white;
+}
+
+/* Contenedor Principal */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Estilo de Tarjetas de Juego */
+.grid-juegos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card-game {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0; /* Steam usa bordes rectos */
+    overflow: hidden;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.card-game:hover {
+    background: var(--steam-dark-grey);
+    transform: scale(1.02);
+}
+
+.card-img-container img {
+    width: 100%;
+    display: block;
+    border-bottom: 3px solid var(--steam-blue);
+}
+
+.card-info {
+    padding: 15px;
+}
+
+.card-info h4 {
+    margin: 0 0 10px 0;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.genre-badge {
+    background: #384959;
+    color: var(--steam-blue);
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    border-radius: 2px;
+}
+
+/* Botones Steam */
+.btn-steam {
+    background: linear-gradient(to right, #75b022 0%, #588a1b 100%);
+    color: #d2efa9;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    width: 100%;
+    margin-top: 15px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.btn-steam:hover {
+    background: linear-gradient(to right, #8ed629 0%, #6aa621 100%);
+    color: white;
+}
+
+/* Formularios (Login/Registro) */
+.form-container {
+    background: #171d25;
+    padding: 40px;
+    border-radius: 4px;
+    max-width: 450px;
+    margin: 80px auto;
+}
+
+.form-container h2 {
+    color: var(--steam-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    background: #32353c;
+    border: 1px solid #000;
+    color: white;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: 1px solid var(--steam-blue);
+}
+/* Estilo para el Banner */
+.hero-banner {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(27, 40, 56, 1)), 
+                url('https://cdn.akamai.steamstatic.com/store/home/store_home_share.jpg');
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--steam-blue);
+}
+
+.hero-text { text-align: center; }
+.hero-text h1 { font-size: 2.5rem; letter-spacing: 5px; color: white; }
+
+/* Grid de imágenes de estrenos */
+.grid-imagenes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.img-release-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+
+.img-release-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.img-release-card:hover {
+    transform: scale(1.05);
+    border-color: var(--steam-blue);
+    box-shadow: 0 0 15px rgba(102, 192, 244, 0.5);
+}
+
+.img-overlay {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: var(--success-green);
+    color: white;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.section-title {
+    font-size: 0.9rem;
+    color: var(--steam-grey);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--steam-blue);
+    padding-left: 10px;
+}
