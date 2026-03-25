@@ -1,9 +1,6 @@
 <?php
 require_once __DIR__ . "/INTERNAL_SERVER_ERROR.php";
 
-/**
- * Detalle de los errores devueltos por un servicio.
- */
 class ProblemDetailsException extends Exception
 {
   public array $problemDetails;
