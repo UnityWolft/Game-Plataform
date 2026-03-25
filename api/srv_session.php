@@ -4,7 +4,6 @@ require_once  __DIR__ . '/lib/devuelveJson.php';
 
 session_start();
 
-// Verificamos si existe la sesión
 if (isset($_SESSION['nombre'])) {
     devuelveJson([
         "logeado" => true,
