@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda - MiniSteam</title>
+    <script type="module" src="js/lib/manejaErrores.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a class="logo" href="index.html">🎮 MINISTEAM</a>
+        <div class="menu">
+            <span id="user-name"></span> 
+            <a href="tienda.html">Tienda</a>
+            <a href="biblioteca.html">Biblioteca</a>
+            <a href="login.html" id="link-login">Login</a>
+            <a href="api/srv_logout.php" id="link-logout" style="display:none;">Salir</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h2 class="section-title">Catálogo de Juegos</h2>
+        <div id="contenedor-juegos" class="grid-juegos"></div>
+    </main>
+
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/tienda.js"></script>
+</body>
+</html>
