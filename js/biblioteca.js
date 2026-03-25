@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function cargarBiblioteca() {
         try {
-            // 1. Obtener la lista de juegos
             const respuesta = await consume(recibeJson("api/srv_biblioteca.php"));
             const juegos = await respuesta.json();
             
@@ -18,8 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 contenedor.innerHTML = "<p class='mensaje-vacio'>Tu biblioteca está vacía. ¡Ve a la tienda!</p>";
                 return;
             }
-
-            // 2. Pintar cada juego
             juegos.forEach(juego => {
                 const card = document.createElement("div");
                 card.className = "card-game";
@@ -31,17 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 `;
 
-                // 3. Configurar el botón de eliminar
                 card.querySelector(".btn-delete").addEventListener("click", async () => {
                     if (confirm(`¿Quieres eliminar "${juego.titulo_juego}"?`)) {
                         try {
-                            // ENVIAMOS EL ID POR URL (?id=X)
                             const resDel = await fetch(`api/srv_biblioteca.php?id=${juego.id}`, {
                                 method: "DELETE"
                             });
 
                             if (resDel.ok) {
-                                // Recargamos la lista visualmente
                                 cargarBiblioteca();
                             } else {
                                 const error = await resDel.json();
