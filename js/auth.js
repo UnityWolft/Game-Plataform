@@ -11,14 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnRegistro = document.getElementById("link-registro");
     const btnLogout = document.getElementById("link-logout");
 
-    // --- Verificar sesión ---
     async function verificarSesion() {
         try {
             const respuesta = await consume(recibeJson("api/srv_session.php"));
             const user = await respuesta.json();
 
             if (user.logeado) {
-                // muestraObjeto busca el ID "nombre" o "user-name" en el HTML
                 muestraObjeto(document, { "user-name": "Hola, " + user.nombre });
                 
                 if (btnLogin) btnLogin.style.display = "none";
@@ -51,8 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-
-    // --- Registro ---
     if (formRegistro) {
         formRegistro.addEventListener('submit', async (e) => {
             e.preventDefault();
